@@ -1,0 +1,115 @@
+{
+  "deck_name": "临床医学::考研与期末真题高频库",
+  "subject_preset": "clinical-medicine",
+  "items": [
+    {
+      "concept_key": "桡神经损伤临床表现",
+      "topic": "系统解剖学::上肢神经",
+      "card_type": "basic",
+      "front": "肱骨中段骨折最易损伤哪条神经？典型畸形与感觉障碍区是？",
+      "back": "桡神经损伤；典型表现为“垂腕”畸形，虎口区（手背第1、2掌骨间）皮肤感觉减退或消失。",
+      "explanation": "桡神经紧贴肱骨中段桡神经沟下行，损伤后前臂伸肌群瘫痪致伸腕、伸指不能。",
+      "source_years": ["2019"],
+      "tags": ["course::系统解剖学"]
+    },
+    {
+      "concept_key": "桡神经损伤临床表现",
+      "topic": "系统解剖学::上肢神经",
+      "card_type": "basic",
+      "front": "出现垂腕畸形及手背虎口区感觉障碍，最可能损伤的是？",
+      "back": "桡神经。",
+      "source_years": ["2021"],
+      "tags": ["course::系统解剖学"]
+    },
+    {
+      "concept_key": "桡神经损伤临床表现",
+      "topic": "外科学::骨科周围神经损伤",
+      "card_type": "basic",
+      "front": "肱骨干骨折术后出现伸腕及各指掌指关节背伸不能，提示损伤的神经为？",
+      "back": "桡神经。",
+      "source_years": ["2023"],
+      "tags": ["course::外科学"]
+    },
+    {
+      "concept_key": "桡神经损伤临床表现",
+      "topic": "系统解剖学::上肢神经",
+      "card_type": "basic",
+      "front": "支配臂及前臂全部伸肌、受损后呈现垂腕的神经是？",
+      "back": "桡神经（伴手背第1、2掌骨间虎口区感觉丧失）。",
+      "source_years": ["2025"],
+      "tags": ["course::系统解剖学"]
+    },
+    {
+      "concept_key": "高血压伴糖尿病或蛋白尿首选降压药",
+      "topic": "内科学::循环系统",
+      "card_type": "basic",
+      "front": "高血压合并糖尿病或慢性肾病（伴蛋白尿）时，首选哪类降压药？",
+      "back": "ACEI（普利类）或 ARB（沙坦类）。",
+      "explanation": "可扩张出球小动脉、降低肾小球囊内压并减少尿蛋白排泄；双侧肾动脉狭窄、高钾血症及妊娠禁用。",
+      "source_years": ["2020"],
+      "tags": ["course::内科学", "course::药理学"]
+    },
+    {
+      "concept_key": "高血压伴糖尿病或蛋白尿首选降压药",
+      "topic": "药理学::心血管系统药物",
+      "card_type": "basic",
+      "front": "既能降低高血压又能延缓糖尿病肾病蛋白尿进展的一线降压药物类别是？",
+      "back": "血管紧张素转化酶抑制剂（ACEI）或血管紧张素Ⅱ受体拮抗剂（ARB）。",
+      "source_years": ["2022"],
+      "tags": ["course::药理学"]
+    },
+    {
+      "concept_key": "高血压伴糖尿病或蛋白尿首选降压药",
+      "topic": "内科学::循环系统",
+      "card_type": "basic",
+      "front": "临床上合并微量白蛋白尿的高血压患者最宜选用的降压药是？",
+      "back": "ACEI 或 ARB 类药物（注意监测血肌酐与血钾）。",
+      "source_years": ["2024"],
+      "tags": ["course::内科学"]
+    },
+    {
+      "concept_key": "动脉血气分析判断呼吸性酸中毒标准",
+      "topic": "病理生理学::酸碱平衡紊乱",
+      "card_type": "basic",
+      "front": "动脉血气分析诊断失代偿期呼吸性酸中毒的核心指标变化是？",
+      "back": "pH < 7.35 且 PaCO2 > 45 mmHg。",
+      "explanation": "原发性 PaCO2 升高导致 H2CO3 浓度原发性增高；慢性呼酸可见代偿性 HCO3- 明显升高。",
+      "source_years": ["2021"],
+      "tags": ["course::病理生理学"]
+    },
+    {
+      "concept_key": "动脉血气分析判断呼吸性酸中毒标准",
+      "topic": "诊断学::临床检验",
+      "card_type": "basic",
+      "front": "患者动脉血 pH < 7.35 伴 PaCO2 > 45 mmHg，提示何种酸碱平衡紊乱？",
+      "back": "呼吸性酸中毒。",
+      "source_years": ["2024"],
+      "tags": ["course::诊断学"]
+    },
+    {
+      "concept_key": "急性前壁心肌梗死特征性心电图导联",
+      "topic": "内科学::冠心病",
+      "card_type": "mcq",
+      "stem": "急性广泛前壁心肌梗死时，特征性 ST 段弓背向上抬高最常出现在哪些导联？",
+      "options": [
+        "A. II、III、aVF",
+        "B. V1～V5",
+        "C. I、aVL",
+        "D. V7～V9"
+      ],
+      "answer": "B",
+      "explanation": "V1～V3 对应前间壁，V3～V5 对应局限前壁，V1～V5（或 V1～V6）提示广泛前壁心梗；II、III、aVF 为下壁心梗。",
+      "source_years": ["2023"],
+      "tags": ["course::内科学", "type::心电图"]
+    },
+    {
+      "concept_key": "二尖瓣狭窄最常见病因与心尖区听诊杂音",
+      "topic": "内科学::心脏瓣膜病",
+      "card_type": "cloze",
+      "text": "二尖瓣狭窄最常见的病因是{{c1::风湿热}}，其典型心脏听诊体征为心尖部{{c2::舒张中晚期隆隆样}}杂音。",
+      "extra": "常伴第一心音亢进及开瓣音；重度狭窄可见“二尖瓣面容”。",
+      "source_years": ["2022"],
+      "tags": ["course::内科学"]
+    }
+  ]
+}

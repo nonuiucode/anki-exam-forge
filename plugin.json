@@ -1,0 +1,18 @@
+{
+  "name": "anki-exam-forge",
+  "displayName": "Anki Exam Forge",
+  "version": "1.0.0",
+  "description": "Closed-loop Anki exam flashcard forge (Antigravity plugin, MCP server & universal Agent Skill): past-exam frequency analysis, zero-dependency stable-GUID .apkg builder (Basic/MCQ/Cloze + media), lecture PPT/DOCX/PDF incremental supplement diffing, and leech mnemonic writeback.",
+  "logo": "assets/logo.svg",
+  "author": {
+    "name": "nonuiucode",
+    "url": "https://github.com/nonuiucode"
+  },
+  "homepage": "https://github.com/nonuiucode/anki-exam-forge",
+  "repository": "https://github.com/nonuiucode/anki-exam-forge",
+  "suggestedPrompts": [
+    "统计这批历年真题 PDF 的考点频次并生成带高频标签的 Anki .apkg 卡片包",
+    "把老师的新课件 PPT 与现有卡片库做查漏补缺，只补充新考点并原地更新 .apkg",
+    "找出 Anki 导出包里反复卡壳的 leech 卡片，用记忆法生成助记并回写原卡片"
+  ]
+}

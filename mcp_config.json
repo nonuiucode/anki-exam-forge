@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "anki-exam-forge": {
+      "command": "node",
+      "args": [
+        "./server/mcp_server.mjs"
+      ]
+    }
+  }
+}

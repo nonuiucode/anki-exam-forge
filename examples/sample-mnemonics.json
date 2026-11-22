@@ -1,0 +1,12 @@
+[
+  {
+    "concept_key": "桡神经损伤临床表现",
+    "technique": "acronym",
+    "mnemonic": "“肱中桡腕垂，尺爪正猿手”—— 肱骨中段贴桡神经，损伤垂腕虎口麻；腕部尺神经爪形手，正中神经猿手。"
+  },
+  {
+    "concept_key": "动脉血气分析判断呼吸性酸中毒标准",
+    "technique": "contrast",
+    "mnemonic": "呼酸看箭头同向还是反向：pH↓(<7.35) 而 PaCO2↑(>45 mmHg) 呈反向变化 → 呼吸性因素主导。"
+  }
+]

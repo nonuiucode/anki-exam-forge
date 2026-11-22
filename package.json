@@ -1,0 +1,51 @@
+{
+  "name": "anki-exam-forge",
+  "version": "1.0.0",
+  "description": "Closed-loop Anki exam flashcard forge: past-exam frequency analysis, zero-dependency stable-GUID .apkg builder, lecture PPT incremental supplement diffing, and leech mnemonic writeback.",
+  "type": "module",
+  "license": "MIT",
+  "author": "nonuiucode",
+  "homepage": "https://github.com/nonuiucode/anki-exam-forge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonuiucode/anki-exam-forge.git"
+  },
+  "keywords": [
+    "anki",
+    "apkg",
+    "flashcards",
+    "spaced-repetition",
+    "exam-prep",
+    "medical-study",
+    "mcp",
+    "antigravity",
+    "agent-skill"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "anki-exam-forge-mcp": "./server/mcp_server.mjs",
+    "anki-exam-forge": "./server/cli.mjs"
+  },
+  "files": [
+    "engine",
+    "server",
+    "scripts",
+    "skills",
+    "assets",
+    "examples",
+    "plugin.json",
+    "mcp_config.json",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "doctor": "node server/cli.mjs doctor",
+    "install:plugin": "node scripts/install.mjs",
+    "test:py": "python -m unittest discover -s test -p \"test_*.py\" -v",
+    "test:js": "node --test test/smoke.test.mjs",
+    "test": "npm run test:py && npm run test:js"
+  }
+}
