@@ -94,6 +94,10 @@ npm run test:py   # Python 核心引擎单测与端到端闭环验证
 npm run test:js   # MCP stdio JSON-RPC、Node CLI 与多模式安装器验证
 ```
 
+## 配套手机刷卡 App：玖记 (`anki-forge-app`)
+
+产出的 `.apkg` 与 `deck.json` 除了可直接导入电脑/手机版 Anki，还配有专门打造的开源离线安卓刷卡伴侣 **[玖记（anki-forge-app）](https://github.com/nonuiucode/anki-forge-app)**：手机系统点击 `.apkg` 直接打开导入、内置 FSRS-5 与考频冲刺排序、选择题点选判分、解剖图缩放，以及一键把「卡壳本」分享回电脑给本插件配助记。
+
 ## 开源协议
 
 本项目基于 **MIT** 协议开源，详见 [LICENSE](LICENSE)。

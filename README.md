@@ -94,6 +94,10 @@ npm run test:py
 npm run test:js
 ```
 
+## Companion Android & Web App: 玖记 (`anki-forge-app`)
+
+Generated `.apkg` and `deck.json` files pair natively with **[玖记 / Jiuji (`anki-forge-app`)](https://github.com/nonuiucode/anki-forge-app)** — an offline-first Android APK & Web/PWA companion featuring system-level `.apkg` file association, FSRS-5 + exam-frequency sprint mode, tap-to-grade MCQs, zoomable diagrams, and one-tap leech export back to `anki-exam-forge`.
+
 ## License
 
 Released under the [MIT License](LICENSE).
