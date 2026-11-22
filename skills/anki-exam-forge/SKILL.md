@@ -40,12 +40,15 @@ Use whichever interface is available in your agent environment:
    - `front` / `stem` / `text`, `options` (for `mcq`), `back` / `answer`, `explanation`, `topic`, `source_years` (e.g., `["2021", "2023"]`), and `media` (any diagram filenames).
 4. **Never count frequencies in your head**: pass the extracted items array/file to `anki_analyze_frequency` (choose `subjectPreset`: `clinical-medicine`, `postgrad-exam`, `law-exam`, or `general`) to generate the deterministic **Markdown frequency report** and prioritized `deck.json`.
 
-### Phase 2: Card Authoring, Validation & `.apkg` Packaging
+### Phase 2: Card Authoring, AI Mnemonics, Validation & `.apkg` Packaging
 1. Before finalizing cards, consult:
-   - [Card Design Guide](./references/card-design-guide.md) — atomicity, cloze vs MCQ vs basic selection, and diagram hygiene.
+   - [Card Design Guide](./references/card-design-guide.md) — atomicity, cloze vs MCQ vs basic selection, diagram hygiene, and authoring concise initial mnemonics.
    - [Subject Presets](./references/subject-presets.md) — field conventions and tag hierarchies for clinical medicine, postgraduate/licensing exams, and STEM/humanities.
-2. **Validate before packaging**: run `anki_validate_deck` (pass `mediaDir` if cards reference extracted figures). Fix any blocking errors (`invalid_cloze`, `missing_media`, `duplicate_card_id`, etc.) and consider splitting verbose cards flagged by warnings.
-3. **Build the `.apkg`**: run `anki_build_apkg` (`subdeckStrategy: "tier"` places cards into `01-高频必背`, `02-中频常考`, `03-真题常规`, `04-课件补充`, sorted so the highest-frequency past-exam cards surface first in Anki's `due` queue).
+   - [Mnemonic Playbook](./references/mnemonic-playbook.md) — structured memory techniques (`acronym`, `rhyme`, `homophone`, `mechanism`, `contrast`, `visual`, `loci`).
+2. **Author initial AI mnemonics during card generation (mandatory default)**:
+   - Do **not** leave `mnemonic` blank waiting for cards to become leeches: write a tailored, concise structured memory cue (`20–80` Chinese chars starting with `【口诀】`, `【对比辨析】`, `【机制推导】`, `【数值锚点】`, `【图像锚点】`, or `【谐音/首字母】`) directly inside every card's `mnemonic` field as you generate it, targeting `mnemonic_coverage == 1.0`.
+3. **Validate before packaging**: run `anki_validate_deck` (pass `mediaDir` if cards reference extracted figures). Fix any blocking errors (`invalid_cloze`, `missing_media`, `duplicate_card_id`, etc.), check that `mnemonic_coverage` is `1.0` (`missing_mnemonic_count == 0`), and consider splitting verbose cards flagged by warnings.
+4. **Build the `.apkg`**: run `anki_build_apkg` (`subdeckStrategy: "tier"` places cards into `01-高频必背`, `02-中频常考`, `03-真题常规`, `04-课件补充`, sorted so the highest-frequency past-exam cards surface first in Anki's `due` queue).
 
 ### Phase 3: Lecture PPT / Notes Incremental Supplement (Exam Score Booster)
 Once past-exam high-yield cards form the passing baseline, use lecture slides (`.pptx`, `.docx`, `.pdf`) to fill remaining syllabus gaps **without overwriting or duplicating existing cards**:
@@ -57,9 +60,9 @@ Once past-exam high-yield cards form the passing baseline, use lecture slides (`
    - **New concepts** are assigned `source::ppt-supplement` and placed into `04-课件补充`, while **every existing card keeps its exact original `guid`**.
 4. Re-validate and rebuild `.apkg` (`anki_build_apkg`). Re-importing into Anki updates modified notes in place without losing review history.
 
-### Phase 4: Stuck / Leech Card Mnemonic Repair
+### Phase 4: Stuck / Leech Card Mnemonic Upgrade & Repair
 When a user exports their active Anki deck (with scheduling info, or check **"Support older Anki versions / 兼容旧版 Anki"** when exporting `.apkg`) or points to stubborn items:
-1. Run `anki_inspect_apkg` with `tagFilter: "leech"` and/or `minLapses: 3` (or `query` for specific keywords) to isolate cards that keep failing recall.
-2. Apply [Mnemonic Playbook](./references/mnemonic-playbook.md) to craft short, vivid memory hooks (`acronym`, `rhyme`, `homophone`, `mechanism`, `contrast`, `visual`, `loci`) specifically targeting *why* the user confuses that card.
+1. Run `anki_inspect_apkg` with `tagFilter: "leech"` and/or `minLapses: 3` (or `query` for specific keywords) to isolate cards whose initial cues failed to stick.
+2. Apply [Mnemonic Playbook](./references/mnemonic-playbook.md) to upgrade or replace weak cues with sharper memory hooks (`acronym`, `rhyme`, `homophone`, `mechanism`, `contrast`, `visual`, `loci`) specifically targeting *why* the user confuses that card.
 3. Write the hooks into the `Mnemonic` field via `anki_apply_mnemonics` (`updateOnly: true` emits a lightweight surgical update `.apkg` containing only patched cards with their **exact original GUIDs**).
 4. Remind the user: mnemonics solve **initial encoding** for stubborn items; Anki spaced repetition maintains **long-term retrievability** — keep reviewing the updated card normally.

@@ -92,6 +92,8 @@ def validate_deck(deck_data: dict[str, Any], media_dir: str | None = None) -> di
             "error_count": 1,
             "warning_count": 0,
             "card_count": 0,
+            "missing_mnemonic_count": 0,
+            "mnemonic_coverage": 0.0,
             "errors": [{"index": -1, "code": "invalid_deck", "message": "Deck must contain a 'cards' list"}],
             "warnings": [],
         }
@@ -100,6 +102,7 @@ def validate_deck(deck_data: dict[str, Any], media_dir: str | None = None) -> di
     warnings: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
     seen_guids: set[str] = set()
+    missing_mnemonic_count = 0
     media_root = Path(media_dir).resolve() if media_dir else None
 
     if len(raw_cards) == 0:
@@ -170,6 +173,14 @@ def validate_deck(deck_data: dict[str, Any], media_dir: str | None = None) -> di
             })
         if not (card.get("topic") or "").strip():
             warnings.append({"index": idx, "card_id": cid, "code": "missing_topic", "message": "Card has no topic/chapter label"})
+        if not (card.get("mnemonic") or "").strip():
+            missing_mnemonic_count += 1
+            warnings.append({
+                "index": idx,
+                "card_id": cid,
+                "code": "missing_mnemonic",
+                "message": "Card has no mnemonic hook; author a concise memory cue during card generation",
+            })
 
         # Check media existence if media_dir is provided OR explicit path references appear
         refs = list(card.get("media") or [])
@@ -185,11 +196,15 @@ def validate_deck(deck_data: dict[str, Any], media_dir: str | None = None) -> di
                         "message": f"Referenced media file not found: {mref}",
                     })
 
+    card_count = len(raw_cards)
+    mnemonic_coverage = round((card_count - missing_mnemonic_count) / card_count, 4) if card_count else 0.0
     return {
         "valid": len(errors) == 0,
         "error_count": len(errors),
         "warning_count": len(warnings),
-        "card_count": len(raw_cards),
+        "card_count": card_count,
+        "missing_mnemonic_count": missing_mnemonic_count,
+        "mnemonic_coverage": mnemonic_coverage,
         "errors": errors,
         "warnings": warnings,
     }

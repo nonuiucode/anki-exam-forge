@@ -30,9 +30,17 @@ Design flashcards for **fast, unambiguous active recall** — not passive textbo
 - Never embed raw base64 data URIs inside card fields — always reference local image filenames and pass `mediaDir` to `anki_validate_deck` / `anki_build_apkg`.
 - For medical anatomy or pathology slides: ask specifically what the highlighted structure/arrow indicates (`Front`: `"图中箭号所指解剖结构及其主要神经支配？"`, `media`: `["anatomy_01.png"]`).
 
-## 5. Quality Checklist Before Packaging
+## 5. Authoring Initial AI Mnemonics (Default Practice)
+
+Do **not** ship blank `mnemonic` fields waiting for a card to become a leech: every generated card should carry a short (`20–80` Chinese chars), targeted memory cue from day one so initial encoding happens immediately alongside FSRS spaced repetition:
+
+- Pick the single sharpest hook from the [Mnemonic Playbook](./mnemonic-playbook.md) and prefix it clearly: `【口诀】`, `【数值锚点】`, `【对比辨析】`, `【机制推导】`, `【图像锚点】`, or `【谐音/首字母】`.
+- Anchor the *exact* cutoff, differential trap, or waveform/anatomical clue tested on that card — never write vague filler like `"理解并熟记本题解析"`.
+
+## 6. Quality Checklist Before Packaging
 
 1. Can each card be answered in under **10 seconds** during review?
-2. Does `MCQ` include a short rationale in `Explanation` explaining why the main distractor is wrong?
-3. Are inequality symbols (`<`, `>`) and units (`mmHg`, `mmol/L`) intact and unambiguous?
-4. Do all cards carry a clean `topic` tag/label for chapter filtering?
+2. Does every card carry a tailored initial `mnemonic` (`mnemonic_coverage == 1.0`)?
+3. Does `MCQ` include a short rationale in `Explanation` explaining why the main distractor is wrong?
+4. Are inequality symbols (`<`, `>`) and units (`mmHg`, `mmol/L`) intact and unambiguous?
+5. Do all cards carry a clean `topic` tag/label for chapter filtering?

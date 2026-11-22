@@ -463,6 +463,41 @@ class TestAnkiExamForgeEngine(unittest.TestCase):
                 self.assertIn("【", card["mnemonic"])
                 self.assertEqual(card["guid"], v2_guids[card["card_id"]])
 
+    def test_validate_deck_reports_mnemonic_coverage(self) -> None:
+        partial_deck = {
+            "deck_name": "MnemonicCoverageTest",
+            "cards": [
+                {
+                    "card_id": "mc-1",
+                    "front": "V1 位置？",
+                    "back": "胸骨右缘第4肋间",
+                    "topic": "导联",
+                    "mnemonic": "【口诀】一右二左四肋间",
+                },
+                {
+                    "card_id": "mc-2",
+                    "front": "V2 位置？",
+                    "back": "胸骨左缘第4肋间",
+                    "topic": "导联",
+                    "mnemonic": "",
+                },
+            ],
+        }
+        res_partial = validate_deck(partial_deck)
+        self.assertTrue(res_partial["valid"])
+        self.assertEqual(res_partial["missing_mnemonic_count"], 1)
+        self.assertEqual(res_partial["mnemonic_coverage"], 0.5)
+        self.assertTrue(
+            any(w["code"] == "missing_mnemonic" and w["card_id"] == "mc-2" for w in res_partial["warnings"])
+        )
+
+        partial_deck["cards"][1]["mnemonic"] = "【口诀】V2 对称放左四"
+        res_full = validate_deck(partial_deck)
+        self.assertTrue(res_full["valid"])
+        self.assertEqual(res_full["missing_mnemonic_count"], 0)
+        self.assertEqual(res_full["mnemonic_coverage"], 1.0)
+        self.assertFalse(any(w["code"] == "missing_mnemonic" for w in res_full["warnings"]))
+
 
 if __name__ == "__main__":
     unittest.main()

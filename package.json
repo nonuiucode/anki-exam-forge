@@ -1,6 +1,6 @@
 {
   "name": "anki-exam-forge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Closed-loop Anki exam flashcard forge: past-exam frequency analysis, zero-dependency stable-GUID .apkg builder, lecture PPT incremental supplement diffing, and leech mnemonic writeback.",
   "type": "module",
   "license": "MIT",

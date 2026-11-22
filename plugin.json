@@ -1,7 +1,7 @@
 {
   "name": "anki-exam-forge",
   "displayName": "Anki Exam Forge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Closed-loop Anki exam flashcard forge (Antigravity plugin, MCP server & universal Agent Skill): past-exam frequency analysis, zero-dependency stable-GUID .apkg builder (Basic/MCQ/Cloze + media), lecture PPT/DOCX/PDF incremental supplement diffing, and leech mnemonic writeback.",
   "logo": "assets/logo.svg",
   "author": {

@@ -14,7 +14,7 @@ A closed-loop **Antigravity plugin**, **MCP server**, and **universal cross-plat
      - `ExamForge-Basic` (Q&A cards)
      - `ExamForge-MCQ` (Interactive click-to-highlight options + rationale on back)
      - `ExamForge-Cloze` (Multi-cloze `{{c1::...}}` / `{{c2::...}}` card expansion)
-   - Orders `cards.due` so high-frequency past-exam concepts appear first, bundles referenced images, and assigns deterministic `guid`s so future updates apply **in place** without losing Anki review history.
+   - Orders `cards.due` so high-frequency past-exam concepts appear first, bundles referenced images, **mandates tailored AI mnemonics during initial card generation** (checked via `validate` `mnemonic_coverage`), and assigns deterministic `guid`s so future updates apply **in place** without losing Anki review history.
    - `inspect` reads `.apkg` archives (preferring `collection.anki21` over `collection.anki2`), extracts media, and filters by tag (`leech`), deck, keyword, or `minLapses`.
 3. **Lecture PPT / Notes Incremental Supplement (Zero Duplicates)**
    - `diff` compares candidate cards from lecture slides/notes against an existing `deck.json` or `.apkg` using canonical key matching + hybrid bigram Jaccard similarity — skipping exact duplicates, surfacing near-duplicates (with optional `--merge-near` enrichment), and appending only genuinely new cards into `04-课件补充` while preserving every existing `guid`.
